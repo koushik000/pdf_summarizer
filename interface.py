@@ -15,12 +15,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 def download_nltk_data():
     """Downloads NLTK data if not already present."""
     try:
-        nltk.data.find('tokenizers/punkt')
+        nltk.data.find('tokenizers/punkt_tab/english.pickle')
         nltk.data.find('corpora/stopwords')
         print("NLTK data already present.")  # Debug message
     except LookupError:
         with st.spinner("Downloading NLTK data... (This may take a minute)"):
-            nltk.download('punkt')
+            nltk.download('punkt_tab')
             nltk.download('stopwords')
         print("NLTK data downloaded successfully.")  # Debug message
 
