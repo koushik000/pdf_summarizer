@@ -22,7 +22,7 @@ if 'nltk_downloaded' not in st.cache_resource:
         with st.spinner("Downloading required data..."):
             nltk.download('punkt')
             nltk.download('stopwords')
-    st.session_state.nltk_downloaded = True
+    st.cache_resource.nltk_downloaded = True
 
 @st.cache_data
 def extract_text(pdf_file):
