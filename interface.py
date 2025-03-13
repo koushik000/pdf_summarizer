@@ -1,7 +1,6 @@
 import streamlit as st
 import fitz  # PyMuPDF
 import nltk
-nltk.data.path.append("nltk_data")
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 import numpy as np
@@ -15,7 +14,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 # Download necessary NLTK data once at app startup
-if 'nltk_downloaded' not in st.session_state:
+if 'nltk_downloaded' not in st.cache_resource:
     try:
         nltk.data.find('tokenizers/punkt')
         nltk.data.find('corpora/stopwords')
