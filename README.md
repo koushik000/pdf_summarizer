@@ -12,9 +12,12 @@ A Streamlit web application that automatically extracts and summarizes content f
 
 ## Demo
 
-[Try the live demo](https://your-app-url-here.streamlit.app) (Replace with your actual deployed URL)
+[Try the live demo](https://summaryscribe.streamlit.app/) (Replace with your actual deployed URL)
 
-![PDF Summarizer Screenshot](https://placeholder-for-screenshot.png)
+![PDF Summarizer Screenshot]![image](https://github.com/user-attachments/assets/258da030-2f74-46a9-8033-12bda7a38607)
+![image](https://github.com/user-attachments/assets/2e615436-1944-48f7-a8f3-17e900ad92bf)
+
+
 
 ## Installation
 
