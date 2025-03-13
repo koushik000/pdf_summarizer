@@ -1,6 +1,7 @@
 import streamlit as st
 import fitz  # PyMuPDF
 import nltk
+nltk.download('punkt')
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 import numpy as np
@@ -12,23 +13,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 # Download necessary NLTK data once at app startup
-import os
-
-# Ensure NLTK data is stored in a persistent location for Streamlit Cloud
-NLTK_DATA_PATH = "/home/appuser/nltk_data"
-os.makedirs(NLTK_DATA_PATH, exist_ok=True)
-nltk.data.path.append(NLTK_DATA_PATH)
-
 if 'nltk_downloaded' not in st.session_state:
     try:
         nltk.data.find('tokenizers/punkt')
         nltk.data.find('corpora/stopwords')
     except LookupError:
-        with st.spinner("Downloading required NLTK data..."):
-            nltk.download('punkt', download_dir=NLTK_DATA_PATH)
-            nltk.download('stopwords', download_dir=NLTK_DATA_PATH)
+        with st.spinner("Downloading required data..."):
+            nltk.download('punkt')
+            nltk.download('stopwords')
     st.session_state.nltk_downloaded = True
-
 
 @st.cache_data
 def extract_text(pdf_file):
