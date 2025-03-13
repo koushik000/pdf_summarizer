@@ -1,7 +1,7 @@
 import streamlit as st
 import fitz  # PyMuPDF
 import nltk
-nltk.download('punkt')
+nltk.data.path.append("nltk_data")
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 import numpy as np
