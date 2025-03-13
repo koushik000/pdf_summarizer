@@ -12,15 +12,18 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-nltk_data_path = "/home/appuser/nltk_data"
-nltk.data.path.append(nltk_data_path)
+
 
 # Download necessary NLTK data once at app startup
-try:
-    nltk.data.find('tokenizers/punkt')
-    nltk.data.find('corpora/stopwords')
-except LookupError:
-    st.error("Required NLTK data is missing. Make sure 'nltk_data' is included in your project.")
+if 'nltk_downloaded' not in st.session_state:
+    try:
+        nltk.data.find('tokenizers/punkt')
+        nltk.data.find('corpora/stopwords')
+    except LookupError:
+        with st.spinner("Downloading required data..."):
+            nltk.download('punkt')
+            nltk.download('stopwords')
+    st.session_state.nltk_downloaded = True
 
 @st.cache_data
 def extract_text(pdf_file):
