@@ -12,7 +12,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-nltk_data_path = os.path.join(os.path.dirname(__file__), "nltk_data")
+nltk_data_path = "/home/appuser/nltk_data"
 nltk.data.path.append(nltk_data_path)
 
 # Download necessary NLTK data once at app startup
