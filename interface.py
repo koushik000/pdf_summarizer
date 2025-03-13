@@ -9,6 +9,11 @@ import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
 # Download necessary NLTK data once at app startup
 if 'nltk_downloaded' not in st.session_state:
     try:
